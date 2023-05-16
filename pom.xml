@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        <groupId>mc.gouv.pom</groupId>
+        <artifactId>super-pom-war-backoffice</artifactId>
+        <version>1.45.2</version>
+        <relativePath />
+	</parent>
+
+	<groupId>mc.gouv.pay</groupId>
+	<artifactId>pay-back</artifactId>
+	<packaging>war</packaging>
+	<version>2.2.2-SNAPSHOT</version>
+
+    <properties>
+        <buildTimestamp>${maven.build.timestamp}</buildTimestamp>
+        <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
+        
+        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+    </properties>
+    
+	<build>
+		<finalName>pay</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+     	<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+            
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.1</version>
+				<configuration>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+			
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                   <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-jspc-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>jspc</id>
+                        <goals>
+                            <goal>jspc</goal>
+                        </goals>
+                        <configuration>
+                            <includes>**\/*.jsp</includes>
+                            <useProvidedScope>true</useProvidedScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack</id>
+                        <goals>
+                            <goal>exploded</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <webappDirectory>target/foo</webappDirectory>
+                            <overlays>
+                                <overlay />
+                                <overlay>
+                                    <groupId>mc.gouv.xrar</groupId>
+                                    <artifactId>xrar-back</artifactId>
+                                </overlay>
+                            </overlays>
+                        </configuration>
+                    </execution>
+                    <execution>
+						<id>pack</id>
+						<goals>
+							<goal>war</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<warSourceDirectory>target/foo</warSourceDirectory>
+							<packagingExcludes>
+								**/*.jsp,
+								**/*.jspf,
+								WEB-INF/lib/mc_batch-2.3.9.jar,
+								WEB-INF/lib/pose-2.1.1.jar,
+								WEB-INF/lib/tools_log-1.3.1.jar,
+								WEB-INF/lib/tools_properties-1.0.0.jar,
+                                WEB-INF/lib/logback-*,
+                                WEB-INF/lib/slf4j-*,
+                                WEB-INF/lib/log4j-*,
+                                WEB-INF/lib/tools_jar_cross*
+							</packagingExcludes>
+							<webXml>target/web.xml</webXml>
+						</configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <configuration>
+                    <httpConnector>
+                        <port>10640</port>     <!-- CHANGER LE PORT ICI -->
+                    </httpConnector>
+                    <stopKey>STOPITNOW</stopKey>
+                    <stopPort>10641</stopPort><!-- CHANGER LE PORT ICI -->
+                    <webApp>
+                        <contextPath>/pay</contextPath>     <!-- CHANGER LE CONTEXTE ICI -->
+                        <jettyEnvXml>${basedir}/src/mcconf/dev/jetty-env.xml</jettyEnvXml>
+                        <webInfIncludeJarPattern>.*displaytag.*.jar$|.*xwlib.*.jar$</webInfIncludeJarPattern>
+                    </webApp>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>MC_GOUV_PROPERTIES_FILE</name>
+                            <value>file:///d:/java_dev_env/propertiesJETTY/mc.gouv.properties</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>org.slf4j.simpleLogger.defaultLogLevel</name>
+                            <value>debug</value>
+                        </systemProperty>
+                        <!-- Fix problem with slf4j being in both the jetty and webapp classloader -->
+                        <systemProperty>
+                            <name>org.eclipse.jetty.server.webapp.parentLoaderPriority</name>
+                            <value>true</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+                
+                <dependencies>
+                    <dependency>
+                        <groupId>mc.gouv.tools_dev</groupId>
+                        <artifactId>dev_config</artifactId>
+                        <version>1.0.1</version>
+                    </dependency>
+                    
+                    <dependency>
+                        <groupId>mc.gouv.tools_jar</groupId>
+                        <artifactId>tools_jar</artifactId>
+                        <version>3.0.12</version>
+                    </dependency>
+                    
+                    <dependency>
+			            <groupId>mc.gouv.tools_www_non_cross</groupId>
+			            <artifactId>tools_www_non_cross</artifactId>
+			            <version>3.0.1</version>
+			        </dependency>
+                    <!-- Use simple logger in dev env -->
+                    <dependency>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-simple</artifactId>
+                        <version>1.7.5</version>
+                    </dependency>
+                    <!-- For sanity Redirect log4j to slf4j by replacing log4j jar -->
+                    <dependency>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>log4j-over-slf4j</artifactId>
+                        <version>1.7.5</version>
+                    </dependency>
+                    
+                    <dependency>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>jul-to-slf4j</artifactId>
+                        <version>1.7.5</version>
+                    </dependency>
+                    <!-- db connection pooling -->
+                    <dependency>
+                        <groupId>org.apache.tomcat</groupId>
+                        <artifactId>tomcat-jdbc</artifactId>
+                        <version>7.0.47</version>
+                    </dependency>
+                    <!-- db2 deps -->
+                    <dependency>
+                        <groupId>com.ibm.db2</groupId>
+                        <artifactId>jcc</artifactId>
+                        <version>11.5.5.0</version>
+                    </dependency>
+                 </dependencies>
+            </plugin>
+            
+        </plugins>
+	</build>
+	
+	<dependencies>
+	
+		<dependency>
+			<groupId>mc.gouv.pay</groupId>
+			<artifactId>pay-service</artifactId>
+			<version>2.2.2-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>mc.gouv.pom</groupId>
+			<artifactId>deps-proj-war-backoffice-jsp</artifactId>
+			<type>pom</type>
+			<version>1.45.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>mc.gouv.pom</groupId>
+			<artifactId>deps-batch</artifactId>
+			<type>pom</type>
+			<version>1.45.2</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+            <groupId>mc.gouv.xrar</groupId>
+            <artifactId>xrar-service</artifactId>
+            <version>5.0.6</version>
+        </dependency>
+        
+		<dependency> 
+			<groupId>mc.gouv.xrar</groupId>
+			<artifactId>xrar-back</artifactId>
+            <version>5.0.6</version>
+			<type>war</type>
+		</dependency>
+
+        <dependency>
+            <groupId>mc.gouv.tools_monitor</groupId>
+            <artifactId>tools_monitor</artifactId>
+            <version>1.0.8</version>
+        </dependency>
+        <!-- pour VersionUtils : lecture de la version de l'application -->
+        <dependency>
+            <groupId>mc.gouv.tools_www</groupId>
+            <artifactId>tools_www</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+		
+		<dependency>
+		    <groupId>mc.gouv.tools_piwik</groupId>
+		    <artifactId>tools_piwik</artifactId>
+		    <version>1.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>mc.gouv.tools_jar</groupId>
+		    <artifactId>tools_jar</artifactId>
+		    <version>3.0.12</version>
+		</dependency>
+       <!-- version non cross de tools_www_cross -->
+		<dependency>
+		   <groupId>mc.gouv.tools_www_non_cross</groupId>
+		   <artifactId>tools_www_non_cross</artifactId>
+		   <version>3.0.0</version>
+		</dependency>
+
+        <dependency>
+            <groupId>mc.gouv.tools_www_logon</groupId>
+            <artifactId>tools_www_logon</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <!-- mc.gouv.logon.shared.User -->
+        <dependency>
+            <groupId>mc.gouv.logon</groupId>
+            <artifactId>logon-shared</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+    
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.16</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mc.gouv.mail</groupId>
+			<artifactId>mail-apiclient</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		
+		<!-- webjars / w_lib -->
+        <dependency>
+            <groupId>mc.gouv.xwlib</groupId>
+            <artifactId>xwlib-webjar</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
+	</dependencies>
+</project>
