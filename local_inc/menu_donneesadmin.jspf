@@ -1,0 +1,60 @@
+<%@ page language="java" contentType="text/html" pageEncoding="utf-8" %>
+
+<%// Test autorisation sur l'utilisateur vérification du poids 
+if(_igroup == 2 && infU.isOk(24- PAY_MIN)) {  %>
+	<ul  id="_tree1">
+	   <li style="z-index: 150;"><a href="#">RECHERCHE DOSSIER</a>
+			<ul>
+			<li><a href="<%=racineAppli%>/RechercheDossiers.jsp">Recherche dossiers</a></li>			       		        
+			</ul>                                          
+		</li>     
+	   <li style="z-index: 150;"><a href="#">FICHE INDIV. et BANC.</a>      
+			<ul>
+		        <li><a href="<%=racineAppli%>/FicheIndividuelle.jsp">FicheIndividuelle</a></li>	
+		        <li><a href="<%=racineAppli%>/FicheIndividuelle.jsp?fmatri=XXXXX">Création</a></li>  
+			</ul>    
+		</li>
+		<li style="z-index: 150;"><a href="#">SITUATION ADMINISTRATIVE</a>
+			<ul>
+		        <li><a href="<%=racineAppli%>/SituationAdministrative.jsp">Recherche et Mise à  jour situation administrative</a></li>	
+			<li><a href="<%=racineAppli%>/SituationAdministrative.jsp?samatri=XXXXX">Création</a></li> 
+			<li><a href="<%=racineAppli%>/ListeSituationsAdmin.jsp">Liste par matricule</a></li> 
+			<li><a href="<%=racineAppli%>/ListeMatricule2.jsp">Liste par matricule2</a></li> 
+			</ul>                 
+		</li>
+		<li style="z-index: 150;"><a href="#">CONSULTATION ENFANT</a>   
+			<ul>
+		        <li><a href="<%=racineAppli%>/ListeEnfants.jsp">Consultation enfants</a></li>
+		        <li><a href="<%=racineAppli%>/MAJPayeenf.jsp?ematri=XXXXX">Création</a></li>	 
+			</ul>                    
+		</li>
+		
+		<li style="z-index: 150;"><a href="#">SITUATION DE FAMILLE</a>   
+			<ul>
+		        <li><a href="<%=racineAppli%>/MAJPayestf.jsp">Recherche et Mise à  jour</a></li>	
+			<li><a href="<%=racineAppli%>/MAJPayestf.jsp?smatri=XXXXX">Création</a></li>	 
+			</ul>                 
+		</li>
+		<li style="z-index: 150;"><a href="#">ARRETS DE MALADIE</a>   
+			<ul>
+		        <li><a href="<%=racineAppli%>/ListeArretsMaladie.jsp">Recherche et Mise à  jour</a></li>	
+		        <li><a href="<%=racineAppli%>/MAJPayemal.jsp">Création</a></li>  
+			</ul>                 
+		</li>
+		<li style="z-index: 150;"><a href="#">OBSERVATIONS</a>   
+			<ul>
+		        <li><a href="<%=racineAppli%>/MAJPaytxt.jsp">Recherche et Mise à  jour</a></li>	 
+			</ul>                 
+		</li>
+		<li style="z-index: 150;"><a href="#">IMPOTS</a>   
+			<ul>
+		        <li><a href="<%=racineAppli%>/GestionImpots.jsp">Gestion des impots</a></li>	
+		        <li><a href="<%=racineAppli%>/MAJImpot.jsp">Création</a></li>  
+			</ul>                 
+		</li>
+		
+		                         
+		                    
+	</ul>                            
+<br style="clear: left;" />    
+<%}%>

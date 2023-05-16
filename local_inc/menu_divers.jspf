@@ -1,0 +1,6 @@
+<% if (_igroup == 3 && infU.isOk(24- REG_MIN)) {  %>
+	<ul id="_tree1">
+		<li><a href="PlanSite.jsp">Plan du site</a></li>
+	</ul>
+<br style="clear: left;" />
+<% } %>

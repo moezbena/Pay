@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html" pageEncoding="utf-8" %>
+
+<div id="nav">
+<!-- Menu de Onglets -->
+<% try { %>
+<div class="maintabs">
+<ul>
+
+<%  
+if ( infU.isOk(24- PAY_CARLO) ) {
+    _igroup = 3 ;
+	out.write("<li ");
+	if (_igroup == 3) out.write("class='selected'") ;
+	out.write("><a href=\"" + racineAppli + "/indexCarlo.jsp\">CARLO</a></li>");
+} else if ( infU.isOk(24- PAY_MIN) ) {
+    out.write("<li ");
+	if (_igroup == 1) out.write("class='selected'") ;
+	out.write("><a href=\"" + racineAppli + "/index.jsp\">CALCUL DE LA PAYE</a></li>");
+	
+	out.write("<li ");
+	if (_igroup == 2) out.write("class='selected'") ;
+	out.write("><a href=\"" + racineAppli + "/indexdonnees.jsp\">DONNEES ADMINISTRATIVES</a></li>");
+}
+%>
+
+</ul>
+</div>
+<div class="treetabs">
+    <%@ include file="menu_calculpaye.jspf" %>
+    <%@ include file="menu_donneesadmin.jspf" %>
+    <%@ include file="menu_carlo.jspf" %>
+
+</div>
+<% } catch (Exception e) { }%>
+</div>

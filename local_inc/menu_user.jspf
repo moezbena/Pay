@@ -1,0 +1,12 @@
+<% if (_igroup == 2 && infU.isOk(24- REG_MIN)) {  %>
+	<ul id="_tree1">
+		<li style="z-index: 150;"><a href="./saisie_client.jsp?source=0">Création</a></li>
+		<li style="z-index: 160;"><a href="#">Recherche</a>
+		  <ul>
+			<li style="z-index: 170;"><a href="../rar/rechercheClients.jsp?source=0">Recherche</a></li>
+		  	<li style="z-index: 180;"><a href="../rar/rechercheAllClients.jsp">Tous les clients</a></li>
+		  </ul>
+		</li>
+	</ul>
+<br style="clear: left;" />
+<% } %>

@@ -1,0 +1,16 @@
+  <display:setProperty name="basic.msg.empty_list" value="<br>Rien à afficher<br>" />
+  <display:setProperty name="export.excel.include_header" value="true" />
+  <display:setProperty name="export.banner" value="<div class=exportlinks><center> Export : {0} </center></div>" />
+  <display:setProperty name="paging.banner.group_size" value="5" />
+  <display:setProperty name="paging.banner.placement" value="bottom" />
+  <display:setProperty name="paging.banner.prev_label" value="Arrière" />
+  <display:setProperty name="paging.banner.next_label" value="Avant" />
+  <display:setProperty name="paging.banner.item_name" value="ligne" />
+  <display:setProperty name="paging.banner.items_name" value="lignes" />
+  <display:setProperty name="paging.banner.no_items_found" value="<span class=pagebanner>Aucune ligne trouvée</span>" />
+  <display:setProperty name="paging.banner.one_item_found" value="<span class=pagebanner>1 ligne trouvée</span>" />
+  <display:setProperty name="paging.banner.all_items_found" value="<span class=pagebanner>{0} {1} trouvées, affichage de toutes les {1}</span>" />
+  <display:setProperty name="paging.banner.some_items_found" value="<span class=pagebanner>{0} {1} trouvées, affichage de la {2} à la {3}</span>" />
+  <display:setProperty name="paging.banner.full" value="<span class=pagelinks> [<a href={1}>Début</a>/<a href={2}>Préc.</a>] {0} [<a href={3}>Suiv.</a>/<a href={4}>Fin</a>]</span>" />
+  <display:setProperty name="paging.banner.first" value="<span class=pagelinks> [<a href={1}>Début</a>/<a href={2}>Préc.</a>] {0} [<a href={3}>Suiv.</a>/<a href={4}>Fin</a>]</span>" />
+  <display:setProperty name="paging.banner.last" value="<span class=pagelinks> [<a href={1}>Début</a>/<a href={2}>Préc.</a>] {0} [<a href={3}>Suiv.</a>/<a href={4}>Fin</a>]</span>" />
