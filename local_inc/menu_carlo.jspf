@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html" pageEncoding="utf-8"%>
+
+<%
+    // Test autorisation sur l'utilisateur CARLO simple
+if (_igroup == 3 && infU.isOk(24 - PAY_CARLO)) {
+%>
+<ul id="_tree1">
+	<li style="z-index: 150;"><a href="#">BENEFICIAIRE</a>
+		<ul>
+			<li><a href="<%=racineAppli%>/CarloRechercheBenef.jsp">Recherche bénéficiaire carlo</a></li>
+			<li><a href="<%=racineAppli%>/CarloSelection.jsp">Voir la sélection</a></li>
+		</ul>
+	</li>
+<%
+    // Test autorisation sur l'utilisateur CARLO admin
+} 
+if (_igroup == 3 && infU.isOk(24 - ADMIN_CARLO)) {
+%>	
+	<li style="z-index: 150;"><a href="#">GENERATION</a>
+		<ul>
+			<li><a href="<%=racineAppli%>/CarloPublipostage.jsp">Intégrer de nouveaux bénéficiaires</a></li>
+			<li><a href="<%=racineAppli%>/CarloRelance.jsp">Relancer des bénéficiaires</a></li>
+		</ul>
+	</li>
+
+</ul>
+<br style="clear: left;" />
+<%
+}
+%>

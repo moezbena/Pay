@@ -1,0 +1,15 @@
+<% if (_igroup == 5 && infU.isOk(24- BATCH_MIN)) {  %>
+
+<%@page import="mc.gouv.xrar.service.MaRARStatic"%>
+	<ul id="_tree1">
+		<li style="z-index: 150;"><a href="#">Administration</a>
+	 	  	<ul>
+				<li style="z-index: 160;"><a href="lst_job.jsp">Liste des Traitements</a></li>
+	  			<li style="z-index: 170;"><a href="finAnnee.jsp?action=<%=MaRARStatic.ACTION_DEMANDE_EXECUTER%>">Traitement de clôture de fin d'année</a></li>
+	  			<li style="z-index: 180;"><a href="finAnnee.jsp?action=<%=MaRARStatic.ACTION_DEMANDE_ANNULER%>">Annulation du traitement de clôture de fin d'année</a></li>
+	  		</ul>
+		</li>
+	</ul>
+
+<br style="clear: left;" />
+<% } %>

@@ -1,0 +1,9 @@
+<%
+// On affiche cela que dans le cas de la presence d'un message
+if(mb.isErrorUtilisateur()   || 
+   mb.isWarningUtilisateur() ||
+   mb.isInformationUtilisateur() )
+{ 
+	out.write( mb.getLibelleListeHtmlString(true) ) ;
+}
+%>	

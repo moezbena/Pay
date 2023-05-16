@@ -1,0 +1,89 @@
+
+/* Screen and Generic begin -*/
+@page rotated {size: landscape}
+
+
+.global, .global1, .popup
+{
+ /*   BACKGROUND-COLOR: transparent; */
+    BACKGROUND-COLOR: #FAFAFA;
+    COLOR: #2020A0;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    FONT-WEIGHT: normal;
+    FONT-VARIANT: normal;
+    FONT-SIZE: 12px;
+    margin-right: 0em ;
+    margin-left:  0em ;
+    margin-top:   0em ;
+    text-align: justify;
+}
+
+.global1
+{
+	background-image: url(img/fond_gouv.jpg);
+	background-repeat: repeat-x;
+}
+
+.popup
+{
+    BACKGROUND-COLOR: #CFCF20;
+	padding-bottom: 0em;
+	padding-top:    0em;
+	padding-right:  0em;
+	padding-left:   0em;
+	width:100%;
+	border-color:#2020A0;
+	border-style: solid ;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-right-width: 0em;
+	border-left-width: 0em;	
+}
+
+.textarea 
+{
+    FONT-FAMILY: 'Verdana';
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 1em;
+    vertical-align: middle;
+}
+
+/* Ajouté par B. Bois le 03/04/2013 */
+.tblrar { width: auto; border-collapse:collapse; margin-bottom: 0.5em; border-top: 2px #888 solid; border-bottom: 2px #888 solid; border-left: 1px #888 solid; border-right: 1px #888 solid; }
+ 
+.tblrar th,td { padding: 0.5em; }
+.tblrar thead th { color: #000; border-bottom: 2px #888 solid; border-right: 2px solid #eee; background: #e0e0e0; }
+
+.tblrar tbody th { background: #e0e0e0; color: #333; }
+.tblrar tbody th[scope="row"], tbody th.sub { background: #f0f0f0; }
+
+.tblrar tbody th { border-bottom: 1px solid #fff; }
+.tblrar tbody td { border-bottom: 1px solid #fff; border-right: 2px solid #fff;}
+
+.tblrar tbody tr:hover th[scope="row"],
+.tblrar tbody tr:hover tbody th.sub { background: #f0e8e8; }
+.tblrar tbody tr:hover td { background: #fff8f8; }
+
+.odd td {background: #BBFFFF;} 
+.even td {background: #21F9F6;}
+
+.scroll_checkboxes {
+    height: 97px;
+    overflow: auto;
+    border: 1px solid #ccc
+}
+
+.no_scroll_checkboxes {
+    border: 1px solid #ccc
+}
+
+.tblnob { width: auto; border-collapse:collapse; margin-bottom: 0em; border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px; }
+ 
+.tblnob th,td { padding: 0.2em; }
+
+.tblnob tbody th { border-bottom: 0px solid; text-align: left; }
+.tblnob tbody td { border-bottom: 0px solid; border-right: 0px; }
+
+

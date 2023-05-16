@@ -1,0 +1,8 @@
+<%
+    final String piwikUrl = mc.gouv.Static.getValue("mc.gouv.piwik.internal.piwikUrl");
+    final String piwikSiteId = mc.gouv.Static.getValue("mc.gouv.piwik.internal.PAY.piwikSiteId");
+    mc.gouv.Notes.readInfoUser infoUserPiwik = (mc.gouv.Notes.readInfoUser)session.getAttribute("infU");
+    final String piwikUserId = infoUserPiwik == null ? null : infoUserPiwik.getUser();
+    mc.gouv.tools.piwik.PiwikTracker piwikTracker = new mc.gouv.tools.piwik.PiwikTracker(piwikUrl, piwikSiteId, piwikUserId);
+%>
+<%= piwikTracker.getPiwikJavaScriptTrackingCode() %>

@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html" pageEncoding="utf-8" %>
+
+<%// Test autorisation sur l'utilisateur vérification du poids 
+if(_igroup == 1 && infU.isOk(24- PAY_MIN)) {  %>
+	<ul  id="_tree1">
+	   <li style="z-index: 150;"><a href="#">CODES CALCULS</a>
+			<ul>
+			<li><a href="<%=racineAppli%>/ListeCodesCalculs.jsp">Liste des codes calculs</a></li>			      
+		        <li><a href="<%=racineAppli%>/MAJCodcal.jsp">Création Code calcul</a></li>  		        
+			</ul>                                          
+		</li>     
+	   <li style="z-index: 150;"><a href="#">TABLE DE CONTROLE</a>      
+			<ul>
+		        <li><a href="<%=racineAppli%>/ListeControleCodes.jsp">Contrôle des codes</a></li>	
+		        <li><a href="<%=racineAppli%>/MAJPayctrle.jsp">Création</a></li>  
+			</ul>    
+		</li>
+		<li style="z-index: 150;"><a href="#">ECHELLES</a>
+			<ul>
+		        <li><a href="<%=racineAppli%>/GestionEchelles.jsp">Recherche et Mise à  jour échelles</a></li>	
+		        <li><a href="<%=racineAppli%>/GestionEchelles.jsp?ebnum=XXXX">Création échelle</a></li>  
+			<li><a href="<%=racineAppli%>/FonctionEchelles.jsp">Recherche et Mise à  jour fonction échelle</a></li>	
+			<li><a href="<%=racineAppli%>/MAJPayecfo.jsp?efnum=XXXX">Création fonction échelle</a></li>
+			<li><a href="<%=racineAppli%>/AvancementEchelles.jsp">Détail échelle</a></li>	
+			<li><a href="<%=racineAppli%>/MAJPayecav.jsp?eanum=XXXX">Création avancement échelle</a></li>
+			<li><a href="<%=racineAppli%>/IndiceEchelles.jsp">Recherche et Mise à  jour indice échelle</a></li>	
+			<li><a href="<%=racineAppli%>/MAJPayecec.jsp">Création indice échelle</a></li>
+			<li><a href="<%=racineAppli%>/ListeDenominations.jsp">Liste des dénominations échelles</a></li>
+			<li><a href="<%=racineAppli%>/ListeAgents.jsp">Liste des agents classés dans une échelle</a></li>
+			</ul>                 
+		</li>
+		<li style="z-index: 150;"><a href="#">RUBRIQUES GLOBALES</a>   
+			<ul>
+		        <li><a href="<%=racineAppli%>/ListeRubriquesGlobales.jsp">Recherche et Mise à  jour</a></li>	
+		        <li><a href="<%=racineAppli%>/MAJPayrube.jsp">Création</a></li>  
+			</ul>                 
+		</li>
+		<li style="z-index: 150;"><a href="#">TABLE PAY701E (Informatique)</a>   
+			<ul>
+		        <li><a href="<%=racineAppli%>/ListePay701e.jsp">Liste PAY701E</a></li>	
+		        <li><a href="<%=racineAppli%>/MAJPay701e.jsp">Création PAY701E</a></li>  
+			</ul>                 
+		</li>
+		<li style="z-index: 150;"><a href="#">RUBRIQUES INDIVIDUELLES</a>   
+			<ul>
+		        <li><a href="<%=racineAppli%>/ListeRubriquesIndividuelles.jsp">Rubriques individuelles (MAT.)</a></li>
+		        <li><a href="<%=racineAppli%>/ListeRubriquesIndividuellesParNumero.jsp">Rubriques individuelles (N°)</a></li>
+			<li><a href="<%=racineAppli%>/MAJPayrubeindmat.jsp">Création Rubrique individuelle </a></li>
+			</ul>                    
+		</li>
+		
+		<li style="z-index: 150;"><a href="#">CODIFICATION DES SERVICES</a>   
+			<ul>
+		        <li><a href="<%=racineAppli%>/ListeServices.jsp">Recherche et Mise à  jour</a></li>	
+		        <li><a href="<%=racineAppli%>/MAJPayserv.jsp">Création</a></li>  
+			</ul>                 
+		</li>
+		<li style="z-index: 150;"><a href="#">CALCUL PAYE</a>   
+			<ul>
+		        <li><a href="<%=racineAppli%>/PAYECalcul.jsp">Fiches de PAYE</a></li>	
+		        <li><a href="<%=racineAppli%>/ListeRappels.jsp">Liste Rappels</a></li>  
+			</ul>                 
+		</li>
+		
+		
+		                         
+		                    
+	</ul>                            
+<br style="clear: left;" />    
+<%}%>

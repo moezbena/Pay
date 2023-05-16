@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<TITLE><%=topTitle%></TITLE>
+<meta charset="UTF-8" http-equiv="Content-Type" content="text/html"/>
+<link rel="stylesheet" type="text/css" href="<%=webjarXwlibUrl%>/css/layout_0.css"/>
+
+<script language="JavaScript" type="text/javascript" src="<%=webjarXwlibUrl%>/js/mc/t_menu.js"></script>
+<script language="JavaScript" type="text/javascript" src="<%=webjarXwlibUrl%>/js/mc/aide.js"></script>
+																									  
+<%@page import="mc.gouv.tools.www.VersionUtils"%>
+<%@page import="mc.gouv.Static"%>
+
+<link rel="stylesheet" type="text/css" href="<%=webjarXwlibUrl%>/css/mc/mc_titre.css"/>
+<link rel="stylesheet" type="text/css" href="<%=webjarXwlibUrl%>/css/mc/mc_table.css"/>
+<link rel="stylesheet" type="text/css" href="<%=webjarXwlibUrl%>/css/mc/mc_forms.css"/>
+<link rel="stylesheet" type="text/css" href="<%=webjarXwlibUrl%>/css/mc/mc_divers.css"/>
+
+<!-- <link rel="stylesheet" type="text/css" href="/dfp/css/dfp.css"/> -->
+<link rel="stylesheet" type="text/css" href="./css/dfp.css"/><!-- Pour Chrome -->
+
+<script language='JavaScript' type='text/javascript' src='<%=webjarXwlibUrl%>/js/mc/t_form.js'></script>
+<script language='JavaScript' type='text/javascript' src='<%=webjarXwlibUrl%>/js/mc/t_calendar.js'></script>
+<script language='JavaScript' type='text/javascript' src='<%=webjarXwlibUrl%>/js/lib/jquery-1.6.4.min.js'></script>
+
+<%
+String env = Static.getValue(Static.SHARED_ENV_KEY);
+String page_margins = "page_margins"+"_"+env;
+String main = "main"+"_"+env;
+
+%>
+</HEAD>
+ 
+<body <%if(on_load.trim().length()>0){%> onLoad="<%=on_load%>"<%}%> >
+<div class="<%=page_margins%>">
+  <div class="page">
+    <div id="header">
+    <img src="<%=webjarXwlibUrl%>/css/mc/img/logo_gouv.png" alt="Gouvernement de Monaco" style="float:left; position: absolute; left:-2px; top:0px;" class="noprint"/>
+      <div id="head_user" style="float:left; position: absolute; left:250px; color:#2020A0">
+      	    <% if (!bUser) { %><span><% }%>
+      	    <%=infU.getNom()%><br/><%=infU.getUser()%><br/><%=infU.getOpid()%>
+	  		<% if (!bUser) { %></span><% }%>
+	 </div>
+	 
+      <div id="head_titre" style="width: 95%;"><%=topTitle%></div>
+	 
+      <div id="head_date" style="margin-top:-5px;">
+    	  <b>Version :</b> <%=infU.getAppli()%> - <%=VersionUtils.getVersion()%><%=(!Static.SHARED_ENV_VALUE_PROD.equals(env))? " @" + env : ""  %><br>
+    	  <%=mc.gouv.ToolsBean.getFormatDate( null, "'<b>Monaco le :</b>' dd MMMMM yyyy '<br><b> &agrave; :</b>' HH:mm:ss" )%>
+      </div>
+      
+      <div id="topnav">
+<a href="<%=request.getContextPath()%>/logout"><img  align=right border=0 src="<%=webjarXwlibUrl%>/images/mc/t_tabs/logout.png"/></a>
+<a href="/logon/menu.jsp" ><img align=right border=0 src="<%=webjarXwlibUrl%>/images/mc/t_tabs/home.png"/></a>
+<a href=""><img align=right border=0 src="<%=webjarXwlibUrl%>/images/mc/t_tabs/space.png"/></a>
+<a href=""><img align=right border=0 src="<%=webjarXwlibUrl%>/images/mc/t_tabs/space.png"/></a>
+<a href="javascript:window.print()" ><img align=right border=0  src="<%=webjarXwlibUrl%>/images/mc/t_tabs/print.png"/></a>
+<% if (idAide > 0) { %>
+<a href="javascript:_aide('<%=idAide%>', '<%=secAppli%>', true)" ><img align=right border=0  src="<%=webjarXwlibUrl%>/images/mc/t_tabs/help-browser.png"/></a>
+<% } %>
+      </div>&nbsp;
+    </div>
+  	
+
+<!-- begin: main content area #main -->
+  <div id="<%=main%>">
+  <!-- Corps de la page -->
+  <div id="main_content" class="clearfix"> <a id="content" name="content"></a>
+  <center>

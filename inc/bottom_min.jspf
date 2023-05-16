@@ -1,0 +1,14 @@
+</center>
+
+<div id="footer" class="noprint">
+	<center>
+	Copyright &copy; 2013 <b>Gouvernement de Monaco</b><br>
+	en cas de remarque contactez <a href="mailto:<%=contact_mail%>"><%=contact_libelle%></a>
+	<img src="/logon/img/spacer.gif?<%=(new java.util.Date()).getTime()%>" />
+	</center>
+</div>
+</div>
+</div>
+<%@ include file="/inc/piwik.jspf" %>
+</body>
+</html>

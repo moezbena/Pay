@@ -1,0 +1,30 @@
+<% if (_igroup == 1 && infU.isOk(24- REG_MIN)) {  %>
+	<ul id="_tree1">
+
+		<li style="z-index: 150;"><a href="#">Brouillard</a>
+			<ul>
+				<li><a href="brouillard.jsp?source=0">Operations du brouillard</a></li>
+			  	<li><a href="paiementAMettreEnBanque.jsp?source=0">Versements à mettre en banque</a></li>
+			</ul>
+	
+		</li>
+		<li style="z-index: 160;"><a href="#">Par client</a>
+		  <ul>
+			<li><a href="rechercheClients.jsp?source=0">Recherche</a></li>
+		  	<li><a href="rechercheAllClients.jsp">Tous les clients</a></li>
+		  	<li><a href="clientsRAR.jsp">Client en RAR</a></li>
+		  </ul>
+		</li>
+
+		<li><a href="rapprochement.jsp?source=0">Banque</a></li>
+
+		<li style="z-index: 170;"><a href="#">Opérations</a>
+		  <ul>
+			<li><a href="RechercheFactures.jsp?action=<%=MaRARStatic.ACTION_RECHERCHE%>&first=O">Factures</a></li>
+		  	<li><a href="RechercheEncaissements.jsp?action=<%=MaRARStatic.ACTION_RECHERCHE%>&first=O">Encaissements</a></li>
+		  </ul>
+		</li>
+
+	</ul>
+<br style="clear: left;" />
+<% } %>

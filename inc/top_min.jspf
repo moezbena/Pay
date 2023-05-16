@@ -1,0 +1,44 @@
+<%@ page import="mc.gouv.admin.ApplicationUtils" %>
+<HTML>
+<HEAD>
+<TITLE><%=topTitle%></TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="/w_lib/css/layout_0.css"/>
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="/w_lib/css/patches/patch_0.css" />
+<![endif]-->
+<script language="JavaScript" type="text/javascript" src="/w_lib/js/mc/t_menu.js"></script>
+<script language="JavaScript" type="text/javascript" src="/w_lib/js/mc/aide.js"></script>
+<% // Définitions propres à l'application %>
+<%@ include file="/local_inc/css.jspf" %>
+<%@ include file="/local_inc/js.jspf" %>
+<%@ page import="mc.gouv.tools.www.VersionUtils"%> <!-- Ajout version #2272 -->
+</HEAD>
+ <%
+String page_margins = "page_margins";
+String main = "main";
+String suffixe_css = ApplicationUtils.getSuffixeCSS();
+
+page_margins+=suffixe_css;
+main+=suffixe_css;
+
+%>
+<div class="<%=page_margins%><%=ApplicationUtils.getSuffixeCSS()%>">
+  <div class="page">
+    <div id="header">
+      <div id="head_user">
+      	    <% if (!bUser) { %><span id="NoPrint"><% }%>
+      	    <%=infU.getNom()%><br/><%=infU.getUser()%><br/><%=infU.getOpid()%>
+	  		<% if (!bUser) { %></span><% }%>
+	 </div>
+	 
+      <div id="head_date">
+	      <%=request.getSession(false).getAttribute("codeAppli")%> _ v<%=VersionUtils.getVersion()%> 	<!-- Ajout version #2272 -->
+	      <br/>      																					<!-- Ajout version #2272 -->
+      	<%=mc.gouv.ToolsBean.getFormatDate( null, "'<b>Monaco le :</b>' dd MMMMM yyyy '<br><b> &agrave; :</b>' HH:mm:ss" )%>
+      </div>
+   </div>
+<center>
+   <h3 class="titre0"><%=topTitle%></h3>
+   
+<%@ include file="/inc/mess_err.jspf" %>  	

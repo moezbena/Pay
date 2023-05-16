@@ -1,0 +1,25 @@
+<%@page import="mc.gouv.pay.service.Constantes"%>
+<%@page import="mc.gouv.xwlib.webjar.Utils"%>
+<%
+	String secAppli = Constantes.LGOB_APP ;
+	final String logAppli = "WWWPAY" ;
+	final String racineAppli = "/pay" ;
+
+	final int _NONE         = -1 ;
+	final int PAY_MIN       = 1  ;
+	final int PAY_CARLO     = 5  ;
+	final int ADMIN_CARLO = 10 ;
+	
+	final int BUD_MAJ_OBS_MIN = 24 - 4 ;
+	final int ADMINDI_MIN = 24 - 13 ;
+	
+	
+	boolean use_t_form     = true ;
+	String on_load		="";
+	
+	//int edtSecLevelMin =  PAY_MIN ;
+	//String topTitle = "P.A.Y.E.";
+	
+	String webjarXwlibUrl = request.getContextPath() + "/webjars/" + Utils.getArtifactId() + "/" + Utils.getVersion();
+	
+%>

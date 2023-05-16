@@ -1,0 +1,536 @@
+
+/* Screen and Generic begin -*/
+@page rotated {size: landscape}
+
+
+.global, .global1, .popup
+{
+ /*   BACKGROUND-COLOR: transparent; */
+    BACKGROUND-COLOR: #FAFAFA;
+    COLOR: #2020A0;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    FONT-WEIGHT: normal;
+    FONT-VARIANT: normal;
+    FONT-SIZE: 12px;
+    margin-right: 0em ;
+    margin-left:  0em ;
+    margin-top:   0em ;
+    text-align: justify;
+}
+
+.global1
+{
+	background-image: url(img/fond_gouv.jpg);
+	background-repeat: repeat-x;
+}
+
+.popup
+{
+    BACKGROUND-COLOR: #CFCF20;
+	padding-bottom: 0em;
+	padding-top:    0em;
+	padding-right:  0em;
+	padding-left:   0em;
+	width:100%;
+	border-color:#2020A0;
+	border-style: solid ;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-right-width: 0em;
+	border-left-width: 0em;	
+}
+
+/* Les titres */
+.titre1, .titre0 
+{
+	background-color: #101080;
+	background-image: url(img/h1.gif);
+	padding-left: 160px;
+	color: #f0faff ;
+	margin-top:0.4em;	
+	margin-bottom: 0.4em;
+	background-repeat: repeat-y;
+	padding-bottom: 0.4em;
+	padding-top: 0.4em;
+	font-size: 1.5em;
+	letter-spacing: 0.2em;
+}
+.titre0 
+{
+	color: #2020A0;
+	border-top: 1px #2020A0 solid;
+	border-bottom: 1px #2020A0 solid;	
+	background-color: #FFF8D0;
+	font-weight: bold;	
+	font-size: 1.4em;
+	padding-left: 150px;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	margin-left:  20%;
+	margin-right: 20%;
+    text-align: left;
+}
+.titre2
+{
+	color: #2020A0;
+	border-top: 1px #2020A0 solid;
+	border-bottom: 1px #2020A0 solid;	
+	background-color: #FFF8D0;
+	font-weight: bold;	
+	padding-left: 1em;
+	font-size: 1.3em;
+	margin-bottom: 0.1em;
+/*	width:95%; */
+}
+
+.titre3
+{
+	color: #2020A0;
+	border-bottom: 1px #2020A0 solid;
+	padding-left: 1em;
+	font-size: 1.2em;
+	margin-bottom: 0.1em;
+}
+
+.titre4 
+{
+	color: #2020A0;
+	font-size: 1em;
+	font-weight: bold;
+	text-decoration: underline;
+	margin-left: 1em;
+}
+
+.titre5
+{
+	color: #2020A0;
+	font-size: 0.8em;
+	font-style: italic;
+	margin-left: 1em;
+}
+.titre6
+{
+	color: #2020A0;
+	font-size: 0.7em;
+	margin-left: 1em;
+}
+/* Fin des titres */
+
+/* paragraphes */
+.p0, .p1, .p2, .p3, .p4, .p5, .p6 
+{
+	margin-left: 20px;
+	margin-right: 30px;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+}
+.p0
+{
+  	margin-top:	   0em;	
+	  margin-bottom: 0em;
+    FONT-SIZE: 1em;
+}
+.p1 
+{
+  	margin-top:		0.4em;	
+    margin-right: 1em ;
+    margin-left:  1em ;
+  	margin-bottom:1em;
+}
+.p1:first-letter 
+{
+	font-size: 300%;
+  font-family: Times, Arial, Helvetica, sans-serif;
+	font-style: italic;	
+	font-weight: bold; 
+	color: #FF2020;
+	float: left;	 
+/*	padding-left: 1em; */
+}
+
+.p2 
+{
+	margin-left: 80px;
+}
+.copyright
+{
+			border-style: solid ;
+			border-top-width: 1px;
+			border-bottom-width: 0px;
+			border-right-width: 0px;
+			border-left-width: 0px;
+
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9px;
+}
+
+.remarque
+{
+  	margin-top:		0em;	
+    margin-right: 0em ;
+    margin-left:  0em ;
+  	margin-bottom: 0em;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    FONT-WEIGHT: normal;
+    FONT-STYLE: italic;
+    FONT-VARIANT: normal;
+    FONT-SIZE: 0.8em;
+}
+
+.pagebreak {
+	page-break-after:always;
+}
+.rotated {
+ page: rotated ;
+ size: landscape ;
+}
+.pfixe
+{
+  	background-color: #FFF0F0;
+  	margin-top:	   0em;	
+	  margin-bottom: 0em;
+    FONT-SIZE: xx-small;
+    FONT-FAMILY: Fixed, monospace  ;
+    line-height: 1em;
+}
+
+/* definition des tables */
+/* tables des messages d'erreurs */
+.tblMsg  
+{
+			color: #2020A0; 
+			background-color: transparent;
+			border-color:#2020A0;
+			border-style: solid ;
+			border-top-width: 0.0em;
+			border-bottom-width: 0.0em;
+			border-right-width: 0em;
+			border-left-width: 0em;
+			margin-top: 0em ;
+			margin-bottom: 0em ;
+			margin-left: 0em;
+			width:100%;
+		}
+		
+.tblMsg .rh	
+{
+			color: #F0F0A0; 
+			background-color:#2020A0;
+			text-align: center ;
+}
+
+.tblMsg .rE, .tblMsg .rW, .tblMsg .rI, .tblMsg .rG	
+{
+			background-color:#FFFFF0;
+			color: #2020A0;
+}
+.tblMsg .rE	
+{
+			background-color:#FF4040;
+			color: #FFFFF0;
+}
+.tblMsg .rW	
+{
+			background-color:#FFB0B0;
+}
+/* fin message d'erreur */
+
+.tbl0  
+{
+			color: #2020A0; 
+			background-color: transparent;
+			border-color:#2020A0;
+			border-style: solid ;
+			border-top-width: 0.2em;
+			border-bottom-width: 0.2em;
+			border-right-width: 0em;
+			border-left-width: 0em;
+			margin-top: 1em ;
+			margin-bottom: 1em ;
+			margin-left: 1em;
+		}
+		
+.tbl0 .rh, .tbl0 .rh TH	
+{
+			color: #F0F0A0; 
+			background-color:#2020A0;
+			text-align: center ;
+}
+
+.tbl0 .r1, .tbl0 .r2, .tbl0 .r3	, .tbl0 TD
+{
+			background-color:#F0F0F0;
+			color: #2020A0;
+}
+.tbl0 .r2	
+{
+			background-color:#D0F0FF;
+			color: #2020A0;
+}
+
+.tbl1  
+{
+			color: #2020A0; 
+			background-color: #F0F0F0;
+			border-color:#AFAF20;
+			border-style: solid ;
+			border-top-width: 0.2em;
+			border-bottom-width: 0.2em;
+			border-right-width: 0.2em;
+			border-left-width: 0.2em;
+			margin-top: 0em ;
+			margin-bottom: 1em ;
+			margin-left: 3em;
+}
+		
+.tbl1 .rh, .tbl1 .rh TH	
+{
+			color: #D8F4FF; 
+			background-color:#2020A0;
+			text-align: center ;
+}
+
+.tbl1 .r1, .tbl1 .r2, .tbl1 .r3, .tbl1 TD	
+{
+			background-color:#F0F0F0;
+			color: #2020A0;
+}
+.tbl1 .r2	
+{
+			background-color:#D0F0FF;
+			color: #2020A0;
+}
+
+.tbl1 .rf	
+{
+			background-color:#202020;
+			color: #FFFF20;
+}
+
+.tbl2  
+{
+			color: #2020A0; 
+			background-color: #D0F0FF;
+			border-color:#A0A0A0;
+			border-style: groove;
+			padding-left: 0.2em;
+			border-collapse: collapse; 
+			empty-cells: show ;
+			border-top-width: 0.3em;
+			border-bottom-width: 0.3em;
+			border-right-width: 0.3em;
+			border-left-width: 0.3em;
+			margin-top: 0em ;
+			margin-bottom: 2em ;
+			margin-left: 3em;
+}
+		
+.tbl2 .rh, .tbl2 TH	
+{
+			color: #FFFFA0; 
+			background-color:#2020A0;
+			text-align: center ;
+}
+
+.tbl2 .r1, .tbl2 .r2, .tbl2 .r3, .tbl2 TD	
+{
+			background-color:#F0F0F0;
+			color: #2020A0;
+}
+.tbl2 .r2, .tbl2 .r2 TD	
+{
+			background-color:#A0F0FF;
+			color: #2020A0;
+}
+.tbl2 .rf	
+{
+			background-color:#202020;
+			color: #FFFF20;
+}
+
+.tbl33  
+{
+			background-color:#F0F0F0;
+			color: #2020A0;
+			border-collapse: collapse; 
+			border-color:#F02020;
+			border-style: none;
+			margin-left: 20pt;
+			width: 95% ;
+}
+.tbl33 *#col1 
+{  
+			border-style: solid ;
+			border-color: #000000 ;
+			border-right-width: 0.1em;
+  		border-top-width: 0em;
+			border-bottom-width: 0em;
+			border-left-width: 0em;
+			width: 20%;
+}
+.tbl33 *#col99   
+{ 
+			border: 3px solid black; 
+			color: #101090;
+			font-weight: normal; 
+			background-color: #F8F8C0;
+  		border-top-width: 0em;
+			border-bottom-width: 0em;
+			border-right-width: 0em;
+			border-left-width: 0.1em;
+			width: 20%;
+}
+.tbl33 .r1 TD#col99   
+{ 
+			background-color: #FAFAD3;
+}
+		
+.tbl33 .rf TD#col99   
+{ 
+			background-color: #FAFAFA;
+}
+.tbl33 .rh,	.tbl33 .rh TH
+{
+ 			color: #FFFFA0; 
+			background-color:#2020A0;
+			text-align: center ;
+}
+
+.tbl33 .r1, .tbl33 .r2, .tbl33 .r3	
+{
+			background-color:#F0F0F0;
+			color: #2020A0;
+}
+.tbl33 .r2	
+{
+			background-color:#D0F0FF;
+}
+.tbl33 .rf, .tbl33 .rf TD	
+{
+			border: 5px solid black; 
+			border-style: solid;
+			background-color:#FAFAFA;
+			color: #2020A0;
+}
+		
+.tblf  
+{
+			color: #2020A0; 
+			background-color: #F0F0F0;
+			border-color:#A0A0A0;
+			border-style: groove;
+			padding-left: 0.2em;
+      border-collapse: collapse; 
+			empty-cells: show ;
+  		border-top-width: 0.3em;
+			border-bottom-width: 0.3em;
+			border-right-width: 0.3em;
+			border-left-width: 0.3em;
+			margin-top: 0em ;
+			margin-bottom: 2em ;
+			margin-left: 3em;
+			width: 95% ;
+      FONT-SIZE: 0.8em;
+}
+		
+.tblf .rh	
+{
+			color: #FFFFA0; 
+			background-color:#2020A0;
+			text-align: center ;
+}
+
+.tblf .r1, .tblf .r2, .tbl2 .r3	
+{
+			background-color:#F0F0F0;
+			color: #2020A0;
+}
+.tblf .r2	
+{
+			background-color:#D0F0FF;
+			color: #2020A0;
+}
+.tblf .rf	
+{
+			background-color:#202020;
+			color: #FFFF20;
+}
+				
+.tdl	{ text-align: left ; 	 }
+.tdc	{	text-align: center ; }
+.tdr	{	text-align: right ;  }
+/* fin des tables */
+
+/* Formulaires */
+.fCmb, .fLst, .fInp, .fInpRO, .fInpMD, .fBt, .fBtSB, .fBtRS, .fChk, .fRd, .fTxt 
+{
+    BORDER-BOTTOM-WIDTH: thin;
+    BORDER-LEFT-WIDTH: thin;
+    BORDER-RIGHT-WIDTH: thin;
+    BORDER-TOP-WIDTH: thin;
+    BACKGROUND-COLOR: #E0F0FF;
+    COLOR: #2020A0;
+    FONT-FAMILY: 'Verdana';
+    FONT-STYLE: normal;
+    FONT-VARIANT: normal;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 1em;
+}
+
+.fRd
+{
+    COLOR: darkblue;
+    vertical-align: middle;
+    BACKGROUND-COLOR: #F0F0F0;
+}
+
+.fBt, .fBtRS, .fBtSB
+{
+	border-style: outset;
+    vertical-align: middle;
+}
+
+.fBtRS
+{
+    BACKGROUND-COLOR: #FF5050 ;
+    COLOR: #FFFF80 ;
+}
+
+.fBtSB
+{
+ 	COLOR: #FFFF20 ;
+    BACKGROUND-COLOR: #2020A0 ;
+	font-weight: bold;	
+}
+
+.fChk
+{
+    COLOR: darkblue;
+    vertical-align: middle;
+    BACKGROUND-COLOR: #F0F0F0;
+}
+
+.fInpRO
+{
+    BORDER-BOTTOM-WIDTH: 0;
+    BORDER-LEFT-WIDTH: 0;
+    BORDER-RIGHT-WIDTH: 0;
+    BORDER-TOP-WIDTH: 0;
+
+    COLOR: #2020A0;
+    BACKGROUND-COLOR: #F0F0F0;
+    FONT-STYLE: italic;
+    vertical-align: middle;
+}
+
+.fInpMD
+{
+    BACKGROUND-COLOR: #FFF0E0;
+    COLOR: darkblue;
+    FONT-STYLE: normal;
+    vertical-align: middle;
+}
+
+/* Fin des formulaires */
+

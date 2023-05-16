@@ -1,0 +1,111 @@
+<%@ page import="mc.gouv.pay.service.Constantes" %>
+<jsp:useBean id="infU" scope="session"		class="mc.gouv.Notes.readInfoUser"	/>
+<jsp:useBean id="mb"   scope="page"  		class="mc.gouv.MessageBean"			/>
+<%
+ 
+	/*definition du LogCons*/
+	mc.gouv.LogCons logT =(mc.gouv.LogCons) application.getAttribute("logT");
+	if(logT == null){
+		logT = new mc.gouv.LogCons() ;
+		logT.startLog(logAppli) ;
+		application.setAttribute("logT",logT);
+	}
+	
+	boolean bUser = false ; 
+	String _t_ = request.getParameter("_grp") ;
+	int _igroup = 0 ;
+	if ( _t_ != null) {
+		try {
+			_igroup = Integer.parseInt(_t_) ;
+		} catch (Exception e ) {
+		}
+	}
+
+	int idAide = 0 ;
+	secAppli = request.getParameter("app") ;
+	if (secAppli == null) {
+		secAppli = (String)session.getAttribute("app") ;
+	}
+	if (secAppli == null) secAppli = Constantes.LGOB_APP;
+	if (secAppli != null) {
+		session.setAttribute("app", secAppli) ;
+	}
+	String pr = infU.activeProfil(secAppli) ;
+	
+	/* RBL */
+    if ( pr == null || pr.length() < 23) {
+        infU = (mc.gouv.Notes.readInfoUser) request.getAttribute("infU") ;
+        if (infU == null) {
+             infU = new mc.gouv.Notes.readInfoUser() ;
+        }
+        else {
+            pr = infU.activeProfil(secAppli) ;
+            session.setAttribute("infU", infU) ;
+        }
+    }
+      /* FIN RBL */
+	
+	if ( pr == null || pr.length() < 23) {
+		String idS = request.getParameter("_KSESS") ;
+		if (idS != null && idS.trim().length() > 2) {
+			HttpSession user_sess = mc.gouv.admin.Monitor.getSession(idS) ;
+			if (user_sess != null) {
+			  try {
+			  	infU  = (mc.gouv.Notes.readInfoUser)user_sess.getAttribute("infU") ;
+			  	if (infU.getAddr() != null && infU.getAddr().equals(request.getRemoteAddr()) ) {
+					pr = infU.activeProfil(secAppli) ;
+					session.setAttribute("infU", infU) ;
+				} else {
+					pr = null ;
+				}
+				
+			  } catch (java.lang.IllegalStateException  e) {
+				  mc.gouv.admin.Monitor.remove(idS) ;
+				  response.sendRedirect( "/"+request.getContextPath()+"/logout") ;
+			  }
+			
+			}
+		}
+	}
+		
+	if ( pr == null || pr.length() < 23) {
+		// On recherche la connexion dans son contexte d origine
+	 	ServletContext appl = application.getContext("/logon") ;
+   		if (appl != null) {
+			infU = (mc.gouv.Notes.readInfoUser)appl.getAttribute("infU") ;
+			if (infU != null) {
+				String sK = (String)appl.getAttribute("matricule") ;
+				String lK = request.getRemoteAddr() + "_" + infU.getUser() ;
+				if ( lK.equals(sK) ) {
+					pr = infU.activeProfil(secAppli) ;
+					session.setAttribute("infU", infU) ;
+				}
+				else
+					pr = null ;
+			}
+		}
+	}	
+	
+	if ( pr == null || pr.length() < 23) 
+	{
+		bUser = false ;
+	}	
+	else {
+		if (edtSecLevelMin >= 0 )
+			try {
+				bUser = infU.isOk(24-edtSecLevelMin) ;
+			} 
+			catch (Exception e ) {
+				bUser = false ;
+			} 
+		else
+			bUser = true ;
+	}
+	
+	if ( bUser == false ) {
+		response.reset();
+		response.setHeader("Cache-Control","no-cache");
+		throw (new Exception("Vous n'etes pas ou plus connect&eacute;")) ;
+	}
+	bUser = true ;
+%>

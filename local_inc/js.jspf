@@ -1,0 +1,10 @@
+<%if(use_t_form){%>
+	<script language='JavaScript' type='text/javascript' src='/w_lib/js/mc/t_form.js'></script>
+<%}%>
+<script language='JavaScript' type='text/javascript' src='/w_lib/js/mc/t_calendar.js'></script>
+<script language='JavaScript' type='text/javascript' src='/w_lib/js/mc/birt.js'></script>
+<script language='JavaScript' type='text/javascript' src='<%=racineAppli%>/js/confirmation.js'></script>
+<script language='JavaScript' type='text/javascript' src='<%=racineAppli%>/js/listevalinval.js'></script>
+<script language='JavaScript' type='text/javascript' src='<%=racineAppli%>/js/calendarDateInput.js'></script>
+<script language='JavaScript' type='text/javascript' src='<%=racineAppli%>/js/util.js'></script>
+<script language='JavaScript' type='text/javascript' src='<%=racineAppli%>/js/saisiefacture.js'></script>
