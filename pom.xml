@@ -5,7 +5,7 @@
         <groupId>mc.gouv.pom</groupId>
         <artifactId>super-pom-war-backoffice</artifactId>
         <version>1.45.2</version>
-        <relativePath />
+        <relativePath/>
 	</parent>
 
 	<groupId>mc.gouv.pay</groupId>
@@ -86,7 +86,7 @@
                         <configuration>
                             <webappDirectory>target/foo</webappDirectory>
                             <overlays>
-                                <overlay />
+                                <overlay/>
                                 <overlay>
                                     <groupId>mc.gouv.xrar</groupId>
                                     <artifactId>xrar-back</artifactId>
@@ -289,7 +289,7 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.16</version>
+			<version>3.17</version>
 		</dependency>
 
 		<dependency>
